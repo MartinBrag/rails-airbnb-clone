@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129101530) do
+ActiveRecord::Schema.define(version: 20161129112927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,12 +24,37 @@ ActiveRecord::Schema.define(version: 20161129101530) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_lines", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "promotion_id"
+    t.string   "status"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["order_id"], name: "index_order_lines_on_order_id", using: :btree
+    t.index ["promotion_id"], name: "index_order_lines_on_promotion_id", using: :btree
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string   "status"
     t.integer  "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["buyer_id"], name: "index_orders_on_buyer_id", using: :btree
+  end
+
+  create_table "promotions", force: :cascade do |t|
+    t.integer  "seller_id"
+    t.integer  "initialquantity"
+    t.integer  "remainingquantity"
+    t.text     "description"
+    t.string   "unit"
+    t.datetime "duration"
+    t.boolean  "promotionstatus"
+    t.string   "producttype"
+    t.integer  "code"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["seller_id"], name: "index_promotions_on_seller_id", using: :btree
   end
 
   create_table "sellers", force: :cascade do |t|
@@ -44,5 +69,8 @@ ActiveRecord::Schema.define(version: 20161129101530) do
     t.datetime "updated_at",  null: false
   end
 
+  add_foreign_key "order_lines", "orders"
+  add_foreign_key "order_lines", "promotions"
   add_foreign_key "orders", "buyers"
+  add_foreign_key "promotions", "sellers"
 end

@@ -5,5 +5,5 @@ class Seller < ApplicationRecord
   validates :city, presence: true
   validates :phonenumber, presence: true, uniqueness: true
   validates :category, presence: true
-  #has_many :promotions
+  has_many :promotions
 end
