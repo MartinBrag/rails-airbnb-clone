@@ -44,9 +44,12 @@ ActiveRecord::Schema.define(version: 20161129112927) do
 
   create_table "promotions", force: :cascade do |t|
     t.integer  "seller_id"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "priceperunit"
+    t.integer  "discount"
     t.integer  "initialquantity"
     t.integer  "remainingquantity"
-    t.text     "description"
     t.string   "unit"
     t.datetime "duration"
     t.boolean  "promotionstatus"

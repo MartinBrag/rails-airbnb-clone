@@ -1,0 +1,24 @@
+<h1>Good deals nearby and for today</h1>
+
+<% @promotions.each do |promo| %>
+<h3> <%= link_to promo.title, promotion_path(promo)%> proposed by <%= promo.seller.username %> </h3>
+<ul>
+
+<li>
+  <strong> <%= promo.producttype %> </strong> - <%= promo.description %>
+</li>
+
+<li>
+  <%= promo.priceperunit %> € --> <%= promo.discount%> % discount
+  valid until : <%= promo.duration %>
+</li>
+
+<li>
+  Avalaible quantity : <%= promo.remainingquantity %> <%= promo.unit%>
+</li>
+
+</ul>
+
+<% end %>
+
+<p>Find me in app/views/promotions/index.html.erb</p>

@@ -33,12 +33,16 @@ Seller.create(username:"A la rose fanée", password:"xexe", city:"Bruxelles", de
   unit2 = unit1[rand(0..1)]
   Promotion.create(seller_id: Seller.all.sample.id,
   initialquantity:(1..100).to_a.sample,
-  description: Faker::Commerce.product_name,
+  remainingquantity: (1..100).to_a.sample,
+  description: Faker::Hipster.sentence,
   unit: unit2,
   duration: Faker::Time.forward(3, :morning),
   promotionstatus: true,
-  producttype: Faker::Commerce.product_name,
-  code: (1000..9999).to_a.sample)
+  producttype: Faker::Beer.name,
+  code: (1000..9999).to_a.sample,
+  title: Faker::GameOfThrones.character,
+  priceperunit: Faker::Commerce.price,
+  discount:(0...100).to_a.sample)
 end
 
 5.times do
