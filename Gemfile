@@ -17,6 +17,8 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'faker'
 gem 'geocoder'
+gem 'coffee-rails'
+gem 'gmaps4rails'
 
 group :development, :test do
   gem 'binding_of_caller'
@@ -29,4 +31,7 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 
