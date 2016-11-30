@@ -6,7 +6,6 @@ class PromotionsController < ApplicationController
   end
 
   def show #---------------------------------------------------------
-    @promotion = Promotion.new
   end
 
   def new #----------------------------------------------------------
@@ -15,7 +14,7 @@ class PromotionsController < ApplicationController
 
   def create #-------------------------------------------------------
     @promotion = Promotion.new(promotion_params)
-    if @promotion.save
+    if @promotion.save!
       redirect_to promotion_path(@promotion)
     else
       render :new
@@ -47,7 +46,7 @@ class PromotionsController < ApplicationController
 
     def promotion_params
 
-      params.require(:promotion).permit(:initialquantity, :remainingquantity, :description, :unit, :duration, :promotionstatus, :producttype, :code)
+      params.require(:promotion).permit(:title, :priceperunit, :discount, :initialquantity, :remainingquantity, :description, :unit, :duration, :promotionstatus, :producttype, :code, :seller_id)
     end
 
 end

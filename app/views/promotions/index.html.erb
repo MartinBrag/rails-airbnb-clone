@@ -1,24 +1,18 @@
 <h1>Good deals nearby and for today</h1>
+  <div class="container">
+    <div class="row">
+    <div class="text-center" class ="col-xs-12 col-sm-6 col-md-4" class="cocktail-div">
+      <% @promotions.each do |promo| %>
+            <h3> <%= link_to promo.title, promotion_path(promo)%> proposed by <%= promo.seller.username %> </h3>
+              <strong> <%= promo.producttype %> </strong> - <%= promo.description %>
+                <%= promo.priceperunit %> € --> <%= promo.discount%> % discount
+                  valid until : <%= promo.duration %>
+                    Avalaible quantity : <%= promo.remainingquantity %> <%= promo.unit%>
+          <% end %>
+      </div>
+   </div>
+ </div>
 
-<% @promotions.each do |promo| %>
-<h3> <%= link_to promo.title, promotion_path(promo)%> proposed by <%= promo.seller.username %> </h3>
-<ul>
-
-<li>
-  <strong> <%= promo.producttype %> </strong> - <%= promo.description %>
-</li>
-
-<li>
-  <%= promo.priceperunit %> € --> <%= promo.discount%> % discount
-  valid until : <%= promo.duration %>
-</li>
-
-<li>
-  Avalaible quantity : <%= promo.remainingquantity %> <%= promo.unit%>
-</li>
-
-</ul>
-
-<% end %>
-
+<%= link_to 'Edit'  %>
+<%= link_to 'New' %>
 <p>Find me in app/views/promotions/index.html.erb</p>
