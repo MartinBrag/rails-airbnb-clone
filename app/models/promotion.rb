@@ -1,4 +1,7 @@
 class Promotion < ApplicationRecord
+
+  attr_accesor :title
+
   belongs_to :seller
   has_many :orderlines
   validates :initialquantity, numericality:{greater_than: 0}, presence: true
