@@ -1,6 +1,6 @@
 class Promotion < ApplicationRecord
 
-  attr_accesor :title
+  attr_accessor :title
 
   belongs_to :seller
   has_many :orderlines
