@@ -1,2 +1,5 @@
-<h1>Promotions#new</h1>
-<p>Find me in app/views/promotions/new.html.erb</p>
+<h1>Add a new promotion</h1>
+
+<%= render 'form', promotion: @promotion %>
+
+<%= link_to 'Back', promotions_path %>

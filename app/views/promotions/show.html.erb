@@ -1,2 +1,28 @@
 <h1>Promotions#show</h1>
+
+<div class="text-center">
+
+ <h1><%= @promotion.title %> by <%= @promotion.seller.username %></h1>
+
+ </div>
+
+  <p><h3>Description</h3></p>
+  <ul>
+  <li>
+  <%= @promotion.producttype %>
+  </li>
+  <li>
+    <%= @promotion.description %>
+  </li>
+  </ul>
+
+  <%= link_to 'Back',promotions_path %>
+  <%= link_to 'Edit', edit_promotion_path%>
+
+
+
+
+
+
+
 <p>Find me in app/views/promotions/show.html.erb</p>

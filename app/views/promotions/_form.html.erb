@@ -1,0 +1,30 @@
+<%= simple_form_for(@promotion) do |promo| %>
+  <% if @promotion.errors.any? %>
+    <div class="alert alert-danger" role="alert" style="color:darkred">
+      <% @promotion.errors.full_messages.each do |message| %>
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        <%= message.html_safe %><br>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="form-inputs">
+    <%= promo.input :title %>
+    <%= promo.input :initialquantity %>
+    <%= promo.input :remainingquantity%>
+    <%= promo.input :description%>
+    <%= promo.input :unit %>
+    <%= promo.input :duration %>
+    <%= promo.input :producttype%>
+    <%= promo.input :code %>
+    <%= promo.input :priceperunit%>
+    <%= promo.input :discount %>
+    <%= promo.input :seller_id %>
+  </div>
+
+
+  <div class="form-actions">
+    <%= promo.button :submit %>
+  </div>
+<% end %>
