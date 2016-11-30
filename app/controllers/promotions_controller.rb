@@ -3,13 +3,18 @@ class PromotionsController < ApplicationController
 
   def index #--------------------------------------------------------
     @promotions = Promotion.all.order(:duration)
-    @hash = Gmaps4rails.build_markers(@promotions) do |promo, marker|
-      marker.lat promo.seller.latitude
-      marker.lng promo.seller.longitude
-    end
+      @hash = Gmaps4rails.build_markers(@promotions) do |promo, marker|
+        marker.lat promo.seller.latitude
+        marker.lng promo.seller.longitude
+      end
   end
 
   def show #---------------------------------------------------------
+    #@promotion_coordinates = { lat: @promotion.seller.latitude, lng: @promotion.seller.longitude }.to_json
+    @promotion_coordinates = Gmaps4rails.build_markers([@promotion]) do |promo, marker|
+      marker.lat promo.seller.latitude
+      marker.lng promo.seller.longitude
+    end
   end
 
   def new #----------------------------------------------------------
