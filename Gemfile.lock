@@ -198,8 +198,8 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
-  devise
   coffee-rails
+  devise
   faker
   figaro
   font-awesome-sass
