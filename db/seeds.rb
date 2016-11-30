@@ -24,9 +24,47 @@ Order.create(status: "Accepted", buyer_id: Buyer.all.sample.id)
 Order.create(status: "Paid", buyer_id: Buyer.all.sample.id)
 Order.create(status: "Picked-up", buyer_id: Buyer.all.sample.id)
 
-Seller.create(username:"Maison Bragard & fils", password:"xuxu", city:"Bruxelles", description:"Votre boucher depuis 150 ans", category:"Butcher", email:"MartinB@gmail.com", phonenumber:"+32123450")
-Seller.create(username:"Maison Liénard", password:"xyxy", city:"Anderlecht", description:"Votre Boulanger, proche des abbatoirs", category:"Baker", email:"DavidL@gmail.com", phonenumber:"+32543210")
-Seller.create(username:"A la rose fanée", password:"xexe", city:"Bruxelles", description:"Votre fleuriste épineux", category:"Florist", email:"MiguelC@gmail.com", phonenumber:"+329876542")
+a = Seller.create(username:"Maison Bragard & fils",
+ password:"xuxu",
+ description:"Votre boucher depuis 150 ans",
+ category:"Butcher",
+ email:"MartinB@gmail.com",
+ phonenumber:"+32123450",
+ street: "rue de la loi",
+ street_number: 16,
+ city:"Bruxelles",
+ city_postcode: 1000)
+
+ a.full_address = a.full_address_conversion
+ a.save!
+
+b = Seller.create(username:"Maison Liénard",
+ password:"xyxy",
+ description:"Votre Boulanger, proche des abbatoirs",
+ category:"Baker",
+ email:"DavidL@gmail.com",
+ phonenumber:"+32543210",
+ street: "rue royale",
+ street_number: 20,
+ city:"Bruxelles",
+ city_postcode: 1000)
+
+ b.full_address = b.full_address_conversion
+ b.save!
+
+c = Seller.create(username:"A la rose fanée",
+ password:"xexe",
+ description:"Votre fleuriste épineux",
+ category:"Florist",
+ email:"MiguelC@gmail.com",
+ phonenumber:"+329876542",
+ street: "Monts des arts",
+ street_number: 16,
+ city:"Bruxelles",
+ city_postcode: 1000)
+
+ c.full_address = c.full_address_conversion
+ c.save!
 
 5.times do
   unit1 = ["Kg","piece(s)"]
