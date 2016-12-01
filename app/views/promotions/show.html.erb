@@ -1,8 +1,12 @@
 <div class="container">
-
- <h1 class="text-center"><%= @promotion.title %> proposed by: <%= @promotion.seller.username %></h1>
-
-  <h3>Description</h3>
+<div class="row">
+<div class="banner-seller">
+ <h1 class="text-center"><%= @promotion.title %></h1>
+ <div class="profil text-center">
+ <i>proposed by:</i><br/><br/>
+ <img src="/assets/shop.png" alt="seller" class="avatar-large"><h2><%= @promotion.seller.username %></h2>
+  </div>
+  <div class="banner-description"><h3>Description</h3>
   <ul>
   <li>
   <%= @promotion.producttype %>
@@ -10,7 +14,16 @@
   <li>
     <%= @promotion.description %>
   </li>
+  <li>
+    Discount: <strong>-<%= @promotion.discount %>%</strong>
+  </li>
+  <li>
+    Price: <strong><%= @promotion.priceperunit %>€</strong>
+  </li>
   </ul>
+  </div>
+  </div>
+  </div>
   </div>
 <div class="container text-center bottom">
   <%= link_to ' Back',promotions_path, { :class=>"btn-medium fa fa-arrow-left" } %>
