@@ -8,3 +8,17 @@
   border-radius: 5px;
   position: relative;
 }
+
+.thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 22px;
+    line-height: 1.4;
+    background-color: white;
+    border: none !important;
+    border-radius: 2px;
+    -webkit-transition: border 0.2s ease-in-out;
+    transition: border 0.2s ease-in-out;
+}
+.thumbnail img{ max-width: 250px;}
+
