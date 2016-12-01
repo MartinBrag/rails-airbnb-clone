@@ -10,22 +10,29 @@
 </div>
 <div class="container top">
   <div class="row">
-    <div class ="col-xs-12 col-sm-6 col-md-6 text-center">
+    <div class ="col-xs-12 col-sm-6 col-md-6">
         <% @promotions.each do |promo| %>
-        <div class="card">
+        <div class="card  text-center">
             <h2> <%= link_to promo.title, promotion_path(promo)%></h2>
             <i>proposed by</i>
             <h3><%= promo.seller.username %> </h3>
-            <div class="seperator"></div>
-            <img src="assets/shop.png" alt="seller" class="avatar-bordered">
-              <p class="top"><strong> <%= promo.producttype %> </strong></p>
-              <p><%= promo.description %></p>
-              <div class="badge-container badge-discount badge-green">
+            <div class="badge-container badge-discount badge-green">
               <p><strong>- <%= promo.discount%>%</strong></p>
               </div>
               <div class="badge-container badge-price badge-red"><strong><%= promo.priceperunit %> €</strong></div>
+
+            <div class="seperator"></div>
+            <img src="assets/shop.png" alt="seller" class="avatar-bordered">
+            <div class="thumbnail">
+            <img src="http://www.lsa-conso.fr/mediatheque/9/0/4/000164409_5.jpg" alt="...">
+             <div class="caption">
+            <p class="top"><strong> <%= promo.producttype %> </strong></p>
+              <p><%= promo.description %></p>
               <p><i class="fa fa-calendar" aria-hidden="true"></i> valid until : <strong><%= promo.duration %></strong></p>
               <p>Avalaible quantity : <strong><%= promo.remainingquantity %> <%= promo.unit%></strong></p>
+            </div>
+        </div>
+
         </div>
           <% end %>
       </div>
@@ -48,9 +55,8 @@
    </div>
  </div>
 
+<footer>
 
-<p class="text-center"><%= link_to 'Edit' %></p>
-<p class="text-center"><%= link_to 'New' %></p>
-<footer></footer>
+</footer>
 
 
