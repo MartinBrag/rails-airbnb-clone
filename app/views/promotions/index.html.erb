@@ -30,9 +30,9 @@
 </div>
 <div class="container top">
 <h2 class="text-center bottom">Find Your <strong><span class="green">Best Deals</span></strong> of the WEEK !</h2>
-  <% @promotions.each do |promo| %>
     <div class="row">
-      <div class ="col-xs-12 col-sm-4 col-md-4">
+    <% @promotions.each do |promo| %>
+      <div class ="col-md-4">
         <div class="card text-center">
             <h2> <%= link_to promo.title, promotion_path(promo)%></h2>
             <i>proposed by</i>
@@ -41,11 +41,10 @@
               <p><strong>- <%= promo.discount%>%</strong></p>
           </div>
           <div class="badge-container badge-price badge-red"><strong><%= promo.priceperunit %> €</strong></div>
-
           <div class="seperator"></div>
             <img src="assets/shop.png" alt="seller" class="avatar-bordered">
           <div class="thumbnail">
-            <img src="http://www.lsa-conso.fr/mediatheque/9/0/4/000164409_5.jpg" alt="...">
+            <img src="http://www.norvege-fr.com/images/actualites/crise-alimentaire.jpg" alt="...">
           <div class="caption">
             <p class="top"><strong> <%= promo.producttype %> </strong></p>
               <p><%= promo.description %></p>
