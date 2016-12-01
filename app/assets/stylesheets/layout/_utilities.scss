@@ -10,8 +10,10 @@
   padding-bottom: 2em;
 }
 
+// Margins
 .top{ margin-top: 5%;}
 .bottom { margin-bottom: 5%;}
+
 
 // Backgrounds
 .bg-black {
@@ -26,3 +28,31 @@
 .bg-dark-blue {
   background: #3b5998;
 }
+
+// Elements
+
+.seperator {
+    width: 400px;
+    height: 2px;
+    margin: 30px;
+    background-image: radial-gradient(#e6e6e6, #FFF), radial-gradient(#e6e6e6, #FFF);
+    background-position: 0, 100%, 0, 100%;
+  }
+
+#map{
+border: solid 10px white;
+}
+
+video {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+}
+
