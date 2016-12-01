@@ -16,9 +16,14 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'faker'
+
+gem 'devise'
+
 gem 'geocoder'
 gem 'coffee-rails'
 gem 'gmaps4rails'
+
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'binding_of_caller'
