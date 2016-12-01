@@ -1,8 +1,10 @@
 class OrderlinesController < ApplicationController
   def index
+    @orderlines = Orderline.all
   end
 
   def show
+    @orderline = Orderline.find(params[:id])
   end
 
   def new

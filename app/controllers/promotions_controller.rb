@@ -2,6 +2,7 @@ class PromotionsController < ApplicationController
  before_action :set_promotion, only: [:show, :edit, :update, :destroy]
 
   def index #--------------------------------------------------------
+    @q = Promotion.search(params[:q])
     @promotions = Promotion.all.order(:duration)
       @hash = Gmaps4rails.build_markers(@promotions) do |promo, marker|
         marker.lat promo.seller.latitude
@@ -46,6 +47,10 @@ class PromotionsController < ApplicationController
     redirect_to promotions_path
   end
 
+
+  def search
+    @promotions = Promotion.where(product_type: params[:product_type])
+  end
 
   private
 

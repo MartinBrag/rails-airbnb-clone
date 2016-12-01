@@ -37,8 +37,10 @@ before_action :set_order, only: [:show, :edit, :update, :destroy]
     redirect_to orders_path
   end
 
+
 private
 
  def set_order
       @orders = Order.find(params[:id])
  end
+end

@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'promotions#index'
+
   resources :promotions
-  resources :buyers do
-    resources :orders do
+    # collection do
+    #   get 'search', to: "promotions#search"
+    # end
+  # end
+
+  resources :buyers
+
+  resources :orders do
       resources :orderlines
-    end
   end
 
   resources :sellers do
