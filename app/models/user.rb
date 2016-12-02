@@ -24,8 +24,5 @@ class User < ApplicationRecord
     end
     return user
   end
-<<<<<<< HEAD
 
-=======
->>>>>>> master
 end
