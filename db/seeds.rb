@@ -6,12 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+
 OrderLine.destroy_all
 Order.destroy_all
 Buyer.destroy_all
 Promotion.destroy_all
 Seller.destroy_all
-
 
 Buyer.create(username:" Miguel", email:"mixcharles@gmail.com", password:"xx", city: "Bruxelles")
 Buyer.create(username:" Martin", email:"Martin@gmail.com", password:"xoxo", city: "Louvain-La-Neuve")
@@ -35,8 +35,11 @@ a = Seller.create(username:"Maison Bragard & fils",
  city:"Bruxelles",
  city_postcode: 1000)
 
+
  a.full_address = a.full_address_conversion
  a.save!
+
+  sleep 0.3
 
 b = Seller.create(username:"Maison Liénard",
  password:"xyxy",
@@ -52,6 +55,8 @@ b = Seller.create(username:"Maison Liénard",
  b.full_address = b.full_address_conversion
  b.save!
 
+  sleep 0.3
+
 c = Seller.create(username:"A la rose fanée",
  password:"xexe",
  description:"Votre fleuriste épineux",
@@ -66,6 +71,8 @@ c = Seller.create(username:"A la rose fanée",
  c.full_address = c.full_address_conversion
  c.save!
 
+  sleep 0.3
+
 5.times do
   unit1 = ["Kg","piece(s)"]
   unit2 = unit1[rand(0..1)]
@@ -78,7 +85,7 @@ c = Seller.create(username:"A la rose fanée",
   promotionstatus: true,
   producttype: Faker::Beer.name,
   code: (1000..9999).to_a.sample,
-  title: Faker::GameOfThrones.character,
+  title: Faker::Commerce.product_name,
   priceperunit: Faker::Commerce.price,
   discount:(0...100).to_a.sample)
 end

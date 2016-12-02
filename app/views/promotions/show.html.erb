@@ -28,6 +28,8 @@
 <div class="container text-center bottom">
   <%= link_to ' Back',promotions_path, { :class=>"btn-medium fa fa-arrow-left" } %>
   <%= link_to ' Edit', edit_promotion_path, { :class=>"btn-medium fa fa-pencil-square-o" } %>
+  <%= link_to ' Add',  create_order_user_order_orderline_path(current_user.id, Order.create, promotion_id: @promotion.id), method: :post %>
+  <%# raise %>
 </div>
   <div id="map" style="width: 100%; height: 600px;"></div>
   <% content_for(:after_js) do %>
