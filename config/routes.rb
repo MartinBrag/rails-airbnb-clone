@@ -8,10 +8,10 @@ Rails.application.routes.draw do
     # end
   # end
 
-  resources :buyers
-
-  resources :orders do
+  resources :buyers do
+    resources :orders do
       resources :orderlines
+    end
   end
 
   resources :sellers do
