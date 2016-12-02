@@ -9,9 +9,13 @@ Rails.application.routes.draw do
     # end
   # end
 
-  resources :buyers do
+  resources :users do
     resources :orders do
-      resources :orderlines
+      resources :orderlines do
+        member do
+          post 'create_order'
+        end
+      end
     end
   end
 
