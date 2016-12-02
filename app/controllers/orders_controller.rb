@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-before_action :set_order, only: [:show, :edit, :update, :destroy]
+# before_action :set_order, only: [:show, :edit, :update, :destroy]
 # before_action: set_order_line, only: [:show, :edit, :update, :destroy]
   def index
     @orders = Order.all.order(:updated_at)
@@ -43,4 +43,5 @@ private
  def set_order
       @orders = Order.find(params[:id])
  end
+
 end

@@ -1,6 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(75deg, rgba(184,255,107,0.7) 10%, rgba(148,219,70,0.8) 80%);">
 <video id="bgvid" playsinline autoplay muted loop>
-  <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+
 <source src="http://ak3.picdn.net/shutterstock/videos/3550073/preview/stock-footage-hd-supermarket.webm" type="video/webm">
 <source src="http://ak3.picdn.net/shutterstock/videos/3550073/preview/stock-footage-hd-supermarket.mp4" type="video/mp4">
 </video>
@@ -8,56 +8,53 @@
     <h1>Good deals nearby and for today</h1>
   </div>
 </div>
-
 <div class="container top">
+<div class="container-fluid top">
   <div class="row">
-    <div class ="col-xs-12 col-sm-6 col-md-6">
-        <% @promotions.each do |promo| %>
-        <div class="card  text-center">
+      <div class ="col-xs-12 text-center">
+        <h2 class="bottom"><i class="fa fa-search" aria-hidden="true"></i> Find <strong><span class="green">Good Deals</span></strong> Near You</h2>
+        <div id="map" style="width: 100%; height: 600px;"></div>
+         <% content_for(:after_js) do %>
+          <%= javascript_tag do %>
+          $(document).ready(function() {
+          var handler = Gmaps.build('Google');
+          handler.buildMap({ internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+            });
+        });
+        <% end %>
+       <% end %>
+      </div>
+  </div>
+</div>
+<div class="container top">
+<h2 class="text-center bottom">Find Your <strong><span class="green">Best Deals</span></strong> of the WEEK !</h2>
+    <div class="row">
+    <% @promotions.each do |promo| %>
+      <div class ="col-md-4">
+        <div class="card text-center">
             <h2> <%= link_to promo.title, promotion_path(promo)%></h2>
             <i>proposed by</i>
             <h3><%= promo.seller.username %> </h3>
-            <div class="badge-container badge-discount badge-green">
+          <div class="badge-container badge-discount badge-green">
               <p><strong>- <%= promo.discount%>%</strong></p>
-              </div>
-              <div class="badge-container badge-price badge-red"><strong><%= promo.priceperunit %> €</strong></div>
-
-            <div class="seperator"></div>
+          </div>
+          <div class="badge-container badge-price badge-red"><strong><%= promo.priceperunit %> €</strong></div>
+          <div class="seperator"></div>
             <img src="assets/shop.png" alt="seller" class="avatar-bordered">
-            <div class="thumbnail">
-            <img src="http://www.lsa-conso.fr/mediatheque/9/0/4/000164409_5.jpg" alt="...">
-             <div class="caption">
+          <div class="thumbnail">
+            <img src="http://www.norvege-fr.com/images/actualites/crise-alimentaire.jpg" alt="...">
+          <div class="caption">
             <p class="top"><strong> <%= promo.producttype %> </strong></p>
               <p><%= promo.description %></p>
               <p><i class="fa fa-calendar" aria-hidden="true"></i> valid until : <strong><%= promo.duration %></strong></p>
               <p>Avalaible quantity : <strong><%= promo.remainingquantity %> <%= promo.unit%></strong></p>
-            </div>
+          </div>
+          </div>
         </div>
-
-        </div>
-          <% end %>
       </div>
-      <div class ="col-xs-12 col-sm-6 col-md-6 card text-center" style="background-image: linear-gradient(75deg, rgba(184,255,107,0.7) 10%, rgba(148,219,70,0.8) 80%);">
-        <h2 class="bottom"><i class="fa fa-search" aria-hidden="true"></i> Find a good deal</h2>
-        <div id="map" style="width: 100%; height: 600px;"></div>
- <% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        });
-    });
-    <% end %>
-  <% end %>
-      </div>
-   </div>
- </div>
-
-<footer>
-
-</footer>
-
-
+      <% end %>
+    </div>
+</div>
