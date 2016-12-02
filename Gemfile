@@ -19,11 +19,10 @@ gem 'faker'
 
 gem 'devise'
 gem 'omniauth-facebook'
-
 gem 'geocoder'
 gem 'coffee-rails'
 gem 'gmaps4rails'
-
+gem 'ransack'
 
 group :development, :test do
   gem 'binding_of_caller'

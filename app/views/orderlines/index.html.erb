@@ -1,2 +1,24 @@
-<h1>Orderlines#index</h1>
-<p>Find me in app/views/orderlines/index.html.erb</p>
+<div class="container top">
+<h1>Hi <%= @buyer.username %></h1><br/>
+<i>please find  the details for</i> <strong> the order reference #<%= @order.id %></strong>
+<br/>
+<h2>Status: <%= @order.status %></h2><br/>
+<h3>last update at: <%= @order.updated_at %></h3>
+<br/>
+<div class="row">
+<% @orderlines.each do |orderline| %>
+<div class="col-sm-4 col-md-4">
+<div class="orderlinecard">
+         <ul>
+           <li>Selected promotion: <strong><%= orderline.promotion.title %></strong><br/>
+            <li>Seller:<strong> <%= orderline.promotion.seller.username %></strong></li>
+           <li> You ordered: <strong>5 <%= orderline.promotion.unit %></strong> of <strong><%= orderline.promotion.producttype %></strong>  </li>
+           <li> Price: <strong><%= orderline.promotion.priceperunit %></strong> </li>
+           <li> Avantage: <strong><%= orderline.promotion.discount %> % </strong></li>
+           <li>You can pick your order at <strong><%= orderline.promotion.seller.full_address %></strong> </li>
+         </ul>
+</div></div>
+
+ <% end %>
+</div>
+</div>

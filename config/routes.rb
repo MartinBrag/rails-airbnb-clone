@@ -2,7 +2,13 @@ Rails.application.routes.draw do
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'promotions#index'
+
   resources :promotions
+    # collection do
+    #   get 'search', to: "promotions#search"
+    # end
+  # end
+
   resources :buyers do
     resources :orders do
       resources :orderlines
