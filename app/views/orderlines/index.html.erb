@@ -1,6 +1,6 @@
 <h1>Hi <%= @buyer.username %> please find  the details for the order reference #<%= @order.id %> </h1>
 <br></br>
-<h1>Status: <%= @order.status %>  update at: <%= @order.updated_at %> </h1>
+<h1>Status: <%= @order.status %> last update at: <%= @order.updated_at %> </h1>
 <br></br>
 <% @orderlines.each do |orderline| %>
          <ul>
@@ -10,7 +10,6 @@
            <li> Avantage: <%= orderline.promotion.discount %> % </li>
            <li>You can pick your order at <%= orderline.promotion.seller.full_address %> </li>
          </ul>
-
  <% end %>
 
 
