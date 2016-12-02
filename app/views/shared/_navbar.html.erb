@@ -1,7 +1,7 @@
 <div class="navbar-wagon navbar-fixed-top">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-  <%= image_tag "logo.png" %>
+  Gaspihero
   <% end %>
 
   <!-- Right Navigation -->
@@ -29,7 +29,7 @@
     <!-- Profile picture and dropdown -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+        <% avatar_url = current_user.facebook_picture_url || "https://image.freepik.com/free-icon/user-male-shape-in-a-circle-ios-7-interface-symbol_318-35357.jpg" %>
         <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li>
@@ -59,7 +59,7 @@
     <% end %>
 
     <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+      <%= link_to t(".sign_in", default: "Basket"), new_user_session_path, {class: "navbar-wagon-item fa fa-shopping-basket navbar-wagon-button btn"} %>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->

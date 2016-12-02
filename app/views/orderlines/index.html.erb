@@ -1,15 +1,24 @@
-<h1>Hi <%= @User.First_name %> please find  the details for the order reference #<%= @order.id %> </h1>
-<br></br>
-<h1>Status: <%= @order.status %> last update at: <%= @order.updated_at %> </h1>
-<br></br>
+<div class="container top">
+<i>please find  the details for</i> <strong> the order reference #<%= @order.id %></strong>
+<br/>
+<h2>Status: <%= @order.status %></h2><br/>
+<h3>last update at: <%= @order.updated_at %></h3>
+<br/>
+<div class="row">
+>>>>>>> master
 <% @orderlines.each do |orderline| %>
+<div class="col-sm-4 col-md-4">
+<div class="orderlinecard">
          <ul>
-           <li>Selected promotion<%= orderline.promotion.title %> order with <%= orderline.promotion.seller.username %></li>
-           <li> You ordered: 5 <%= orderline.promotion.unit %> of <%= orderline.promotion.producttype %>  </li>
-           <li> Price: <%= orderline.promotion.priceperunit %> </li>
-           <li> Avantage: <%= orderline.promotion.discount %> % </li>
-           <li>You can pick your order at <%= orderline.promotion.seller.full_address %> </li>
+           <li>Selected promotion: <strong><%= orderline.promotion.title %></strong><br/>
+            <li>Seller:<strong> <%= orderline.promotion.seller.username %></strong></li>
+           <li> You ordered: <strong>5 <%= orderline.promotion.unit %></strong> of <strong><%= orderline.promotion.producttype %></strong>  </li>
+           <li> Price: <strong><%= orderline.promotion.priceperunit %></strong> </li>
+           <li> Avantage: <strong><%= orderline.promotion.discount %> % </strong></li>
+           <li>You can pick your order at <strong><%= orderline.promotion.seller.full_address %></strong> </li>
          </ul>
+</div></div>
+
  <% end %>
-
-
+</div>
+</div>

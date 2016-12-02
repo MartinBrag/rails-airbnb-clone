@@ -8,7 +8,6 @@
     <h1>Good deals nearby and for today</h1>
   </div>
 </div>
-<div class="container top">
 <div class="container-fluid top">
   <div class="row">
       <div class ="col-xs-12 text-center">
@@ -33,7 +32,7 @@
 <h2 class="text-center bottom">Find Your <strong><span class="green">Best Deals</span></strong> of the WEEK !</h2>
     <div class="row">
     <% @promotions.each do |promo| %>
-      <div class ="col-md-4">
+      <div class ="col-sm-4 col-md-4">
         <div class="card text-center">
             <h2> <%= link_to promo.title, promotion_path(promo)%></h2>
             <i>proposed by</i>
@@ -43,14 +42,15 @@
           </div>
           <div class="badge-container badge-price badge-red"><strong><%= promo.priceperunit %> €</strong></div>
           <div class="seperator"></div>
-            <img src="assets/shop.png" alt="seller" class="avatar-bordered">
+            <%= image_tag "shop.png", alt:"seller", class:"avatar-bordered" %>
           <div class="thumbnail">
             <img src="http://www.norvege-fr.com/images/actualites/crise-alimentaire.jpg" alt="...">
           <div class="caption">
             <p class="top"><strong> <%= promo.producttype %> </strong></p>
               <p><%= promo.description %></p>
               <p><i class="fa fa-calendar" aria-hidden="true"></i> valid until : <strong><%= promo.duration %></strong></p>
-              <p>Avalaible quantity : <strong><%= promo.remainingquantity %> <%= promo.unit%></strong></p>
+              <p>Avalaible quantity : <strong><%= promo.remainingquantity %> <%= promo.unit%></strong></p><br/>
+              <a href="#" class="btn-medium"><i class="fa fa-shopping-basket"></i>  Add to basket</a>
           </div>
           </div>
         </div>

@@ -24,6 +24,18 @@
   width: 50px;
 }
 
+.navbar-wagon-brand {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-wagon-brand:hover {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 /* Navbar right section (with form, links, button) */
 .navbar-wagon-right {
   display: flex;
@@ -44,18 +56,18 @@
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: #94DB46;
   text-decoration: none;
 }
 
 /* Navbar right button */
 .navbar-wagon-button {
-  margin-left: 10px;
+  margin-left: 0px;
   padding: 0 20px;
   border-radius: 20em;
   line-height: 40px;
-  background-color: #94DB46;
-  color: white;
+  background-color: #ffffff;
+  color: #94DB46;
   font-size: 14px;
   border: 2px solid #94DB46;
   transition: all 0.3s;
